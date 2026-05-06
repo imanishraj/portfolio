@@ -154,7 +154,12 @@ export default function App() {
       if (!contactEmail || !contactMessage) return;
       setSending(true);
       try {
-         await emailjs.send('service_ipas4ks', 'template_tc5isil', { from_email: contactEmail, message: contactMessage }, 'Tj8JkfFzJxPbUwEe0');
+         await emailjs.send(
+            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
+            { from_email: contactEmail, message: contactMessage },
+            process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string
+         );
          setSent(true);
          setContactEmail('');
          setContactMessage('');
