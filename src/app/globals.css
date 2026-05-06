@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:           #060d18;
+  --bg-secondary: #0a1628;
+  --eye-stroke:   #c8962a;
+  --eye-fill:     #060d18;
+  --accent:       #c8962a;
+  --text-primary: #e8dcc8;
+  --text-muted:   #7a6a52;
+  --iris:         #e8a030;
+  --fog:          block;
+}
+
+html, body {
+  background: #0b1017;
+  color: #e8dcc8;
+  font-family: 'Playfair Display', serif;
+  font-size: 110%; /* Increase base font scale overall */
+  overflow-x: hidden;
+  width: 100%;
+}
+
+svg {
+  overflow: visible;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+@keyframes scrollUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-600px); }
+}
+
+@keyframes scrollDown {
+  from { transform: translateY(-500px); }
+  to   { transform: translateY(0px); }
+}
+
+/* Typography discipline — enforce everywhere */
+.heading {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.subheading {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.body-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 400;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  line-height: 1.8;
+}
+
+/* Page transition wrapper */
+.page-enter {
+  opacity: 0;
+  transform: scale(0.98);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Replace existing section-content rules with these */
+.section-content {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section-content.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Fallback — if JS observer fails, show after 800ms via animation */
+.section-content {
+  animation: fallbackShow 0s 0.8s forwards;
+}
+
+@keyframes fallbackShow {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Base UI Components */
+.back-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+  cursor: pointer;
+  z-index: 50;
+}
+.back-arrow:hover {
+  transform: translateX(-8px);
+  opacity: 0.8;
+}
+
+.skill-pill {
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--eye-stroke);
+  border-radius: 20px;
+  font-family: monospace;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  display: inline-block;
+}
+
+.thin-line {
+  width: 100%;
+  height: 1px;
+  background-color: var(--eye-stroke);
+  opacity: 0.3;
+  margin: 2rem 0;
+}
+
+@keyframes irisSnap {
+  0%   { opacity: 0.3; }
+  40%  { opacity: 1.15; filter: brightness(1.4); }
+  100% { opacity: 1.0;  filter: brightness(1.0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.iris-snap { animation: irisSnap 0.35s ease-out forwards; }
+
+/* Custom webkit scrollbars for chat drawer */
+.chat-drawer-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.chat-drawer-scroll::-webkit-scrollbar-track {
+  background: #050505;
+}
+.chat-drawer-scroll::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 10px;
+}
+.chat-drawer-scroll::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
