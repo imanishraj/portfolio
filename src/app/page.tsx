@@ -188,7 +188,7 @@ export default function App() {
                </header>
 
                <ScrollReveal blur delay={0.5} yOffset={100}>
-                  <h1 style={{ fontFamily: '"Playfair Display", serif', fontSize: "clamp(5rem, 12vw, 15rem)", lineHeight: 0.85, letterSpacing: "-0.04em", fontStyle: "italic", fontWeight: 400, color: "#e0e0e0", position: "relative", zIndex: 10 }}>
+                  <h1 style={{ fontFamily: '"Playfair Display", serif', fontSize: "clamp(3rem, 12vw, 15rem)", lineHeight: 0.85, letterSpacing: "-0.04em", fontStyle: "italic", fontWeight: 400, color: "#e0e0e0", position: "relative", zIndex: 10 }}>
                      <ScatterText text="Creative" /> <span style={{ display: "block", paddingLeft: "15vw", fontFamily: '"Inter", sans-serif', textTransform: "uppercase", fontStyle: "normal", fontWeight: 800, letterSpacing: "-0.05em", color: "#ffffff" }}><ScatterText text="Developer" /></span>
                   </h1>
                </ScrollReveal>
@@ -225,7 +225,7 @@ export default function App() {
             {/* === ABOUT === */}
             <section id="about" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "10vh 0" }}>
                <div style={{ maxWidth: "800px" }}>
-                  <h2 style={{ fontFamily: '"Inter", sans-serif', fontWeight: 800, fontSize: "clamp(4rem, 8vw, 10rem)", color: "#ffffff", marginBottom: "4rem", lineHeight: 0.9, letterSpacing: "-0.05em" }}><DataScramble text="MANISH RAJ" /></h2>
+                  <h2 style={{ fontFamily: '"Inter", sans-serif', fontWeight: 800, fontSize: "clamp(2.5rem, 8vw, 10rem)", color: "#ffffff", marginBottom: "4rem", lineHeight: 0.9, letterSpacing: "-0.05em" }}><DataScramble text="MANISH RAJ" /></h2>
                   <ScrollReveal delay={0.15}>
                      <p style={{ fontFamily: '"Inter", sans-serif', fontSize: "clamp(1.2rem, 3vw, 1.8rem)", lineHeight: 1.6, color: "#aaaaaa", marginBottom: "2rem", fontWeight: 300 }}>
                         I am a Full Stack Developer & IoT Explorer based in the structural intersections of software and hardware. Currently building automated systems at Alstonair Technologies.
@@ -254,7 +254,7 @@ export default function App() {
             {/* === EXPERIENCE === */}
             <section id="experience" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "15vh 0" }}>
                <div style={{ width: "100%", maxWidth: "1200px" }}>
-                  <h2 style={{ fontFamily: '"Inter", sans-serif', fontWeight: 800, letterSpacing: "-0.05em", fontSize: "clamp(4rem, 8vw, 10rem)", color: "#ffffff", marginBottom: "8rem", lineHeight: 0.9 }}><DataScramble text="EXPERIENCE" /></h2>
+                  <h2 style={{ fontFamily: '"Inter", sans-serif', fontWeight: 800, letterSpacing: "-0.05em", fontSize: "clamp(2.5rem, 8vw, 10rem)", color: "#ffffff", marginBottom: "8rem", lineHeight: 0.9 }}><DataScramble text="EXPERIENCE" /></h2>
                   <div style={{ display: "flex", flexDirection: "column", gap: "6rem" }}>
                      {[
                         { role: "Full Stack Developer", corp: "ALSTONAIR TECHNOLOGIES", date: "Apr 2026 \u2013 Present", summary: "Engineered high-throughput microservices and resilient data pipelines. Led the transition to containerized infrastructure, resulting in a 40% reduction in deployment times and ensuring zero-downtime scalability across core platform APIs." },
@@ -272,7 +272,7 @@ export default function App() {
             {/* === ACHIEVEMENTS === */}
             <section id="wins" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "15vh 0" }}>
                <div style={{ width: "100%" }}>
-                  <h2 style={{ fontFamily: '"Inter", sans-serif', fontWeight: 800, letterSpacing: "-0.05em", fontSize: "clamp(4rem, 8vw, 10rem)", color: "#ffffff", marginBottom: "8rem", lineHeight: 0.9, textAlign: "right" }}><DataScramble text="MILESTONES" /></h2>
+                  <h2 style={{ fontFamily: '"Inter", sans-serif', fontWeight: 800, letterSpacing: "-0.05em", fontSize: "clamp(2.5rem, 8vw, 10rem)", color: "#ffffff", marginBottom: "8rem", lineHeight: 0.9, textAlign: "right" }}><DataScramble text="MILESTONES" /></h2>
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "3vw" }}>
                      <ScrollReveal delay={0.1}><AchievementCard image="/images/achievements/reev.jpeg" icon="🏎️" title="2nd Runner-up" event="SAE India REEV" sub="2026 • Infotainment Lead" /></ScrollReveal>
                      <ScrollReveal delay={0.2}><AchievementCard image="/images/achievements/sih.jpg" icon="💻" title="Runner-up" event="SIH Hackathon" sub="2023" /></ScrollReveal>
@@ -285,7 +285,7 @@ export default function App() {
             {/* === CONTACT === */}
             <section id="contact" style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "center", padding: "10vh 0" }}>
                <div style={{ width: "100%", maxWidth: "1400px", margin: "0 auto" }}>
-                  <h2 style={{ fontFamily: '"Inter", sans-serif', fontWeight: 800, letterSpacing: "-0.05em", fontSize: "clamp(5rem, 12vw, 15rem)", color: "#ffffff", marginBottom: "3rem", textAlign: "center", lineHeight: 0.85 }}><DataScramble text="FIND ME" /></h2>
+                  <h2 style={{ fontFamily: '"Inter", sans-serif', fontWeight: 800, letterSpacing: "-0.05em", fontSize: "clamp(3.5rem, 12vw, 15rem)", color: "#ffffff", marginBottom: "3rem", textAlign: "center", lineHeight: 0.85 }}><DataScramble text="FIND ME" /></h2>
                   <ScrollReveal delay={0.2}>
                      <div style={{ color: "#666", letterSpacing: "0.2em", textAlign: "center", marginBottom: "10rem", fontSize: "1rem", textTransform: "uppercase", fontFamily: '"Inter", sans-serif' }}>
                         <DataScramble text="NO PILLS. NO POPUPS. JUST CONTACT." />
@@ -311,7 +311,7 @@ export default function App() {
                            </div>
                         </ScrollReveal>
                         <ScrollReveal delay={0.6} yOffset={30}>
-                           <button type="submit" disabled={sending || sent} className="hover-target obys-btn" style={{ width: "100%", textAlign: "center", background: sent ? "#fff" : "transparent", color: sent ? "#000" : "#fff", marginTop: "1rem" }}>
+                           <button type="submit" disabled={sending || sent} className="hover-target obys-btn submit-btn" style={{ width: "100%", textAlign: "center", marginTop: "1rem" }}>
                               {sending ? "SENDING..." : sent ? "MESSAGE SENT" : "SEND MESSAGE"}
                            </button>
                         </ScrollReveal>
@@ -350,6 +350,10 @@ export default function App() {
         body { margin: 0; background: #050505; overflow-x: clip; }
         @media (pointer: fine) {
           body { cursor: none; }
+        }
+        p {
+          text-align: justify;
+          text-justify: inter-word;
         }
         
         /* Custom Scrollbar Styles */
@@ -408,12 +412,24 @@ export default function App() {
         .scroller-item.active { color: #fff; }
         .scroller-item.active .scroller-dot { background: #fff; transform: scale(2); }
         
+        .submit-btn {
+           background: #ffffff !important; color: #000000 !important; font-weight: 600; border-color: #ffffff !important;
+        }
+        .submit-btn:hover {
+           background: transparent !important; color: #ffffff !important;
+        }
+        .submit-btn:disabled {
+           background: rgba(255,255,255,0.2) !important; color: rgba(255,255,255,0.5) !important; border-color: rgba(255,255,255,0.2) !important; cursor: not-allowed;
+        }
         /* Mobile additions */
         @media (max-width: 768px) {
           form[style] { padding: 8vw !important; }
           .typing-hint { padding-left: 0 !important; text-align: center; }
           footer { flex-direction: column !important; gap: 1rem; }
           .case-close { top: 5vw !important; right: 5vw !important; font-size: 1.1rem !important; padding: 10px; }
+          .contact-row { flex-direction: column !important; align-items: flex-start !important; gap: 0.5rem; }
+          .contact-val { font-size: 1.1rem !important; word-break: break-all; }
+          p { text-align: left !important; }
         }
       ` }} />
       </div>
@@ -584,9 +600,9 @@ function ExperienceRow({ role, corp, date, summary }: any) {
 
 function ContactRow({ label, val, href }: any) {
    return (
-      <a href={href} target="_blank" rel="noreferrer" className="hover-target" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", borderBottom: "1px solid rgba(255,255,255,0.1)", padding: "1.5rem 0", textDecoration: "none", transition: "all 0.3s ease" }}>
+      <a href={href} target="_blank" rel="noreferrer" className="hover-target contact-row" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", borderBottom: "1px solid rgba(255,255,255,0.1)", padding: "1.5rem 0", textDecoration: "none", transition: "all 0.3s ease" }}>
          <span style={{ fontFamily: '"Inter", sans-serif', color: "#666", letterSpacing: "0.2em", fontSize: "0.85rem" }}>{label}</span>
-         <span style={{ fontFamily: '"Inter", sans-serif', color: "#ffffff", fontSize: "1.5rem" }}>{val}</span>
+         <span className="contact-val" style={{ fontFamily: '"Inter", sans-serif', color: "#ffffff", fontSize: "1.5rem" }}>{val}</span>
       </a>
    )
 }
