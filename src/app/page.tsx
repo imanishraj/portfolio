@@ -76,7 +76,7 @@ const projects = [
       link: "https://github.com/imanishraj/music-player"
    }
 ];
-const TypingLoop = ({ text }: { text: string }) => {
+const TypingLoop = ({ text, color = '#444' }: { text: string; color?: string }) => {
   const [displayed, setDisplayed] = useState("")
   const [isErasing, setIsErasing] = useState(false)
   const pos = useRef(0)
@@ -110,7 +110,7 @@ const TypingLoop = ({ text }: { text: string }) => {
       fontFamily: '"Inter", sans-serif',
       fontSize: 'clamp(0.7rem, 1vw, 0.9rem)',
       letterSpacing: '0.3em',
-      color: '#444',
+      color: color,
       textTransform: 'uppercase',
     }}>
       {displayed}<span style={{ animation: 'blink 1s infinite' }}>|</span>
@@ -121,6 +121,14 @@ export default function App() {
    const [selectedId, setSelectedId] = useState<string | null>(null);
    const [loading, setLoading] = useState(true);
    const { openChat } = useChat();
+   const [isMobile, setIsMobile] = useState(false);
+
+   useEffect(() => {
+      const check = () => setIsMobile(window.innerWidth <= 768);
+      check();
+      window.addEventListener('resize', check);
+      return () => window.removeEventListener('resize', check);
+   }, []);
 
    const [contactEmail, setContactEmail] = useState('');
    const [contactMessage, setContactMessage] = useState('');
@@ -218,8 +226,15 @@ export default function App() {
                </AnimatePresence>
             </section>
 
-            <div className="typing-hint" style={{ marginTop: '2.5rem', paddingLeft: '25vw' }}>
-               <TypingLoop text="Go slow as you can and explore with cursor" />
+            <div className="typing-hint" style={{ 
+               marginTop: '2.5rem', 
+               paddingLeft: isMobile ? '0' : '25vw',
+               textAlign: isMobile ? 'center' : 'left'
+            }}>
+               <TypingLoop 
+                  text={isMobile ? "PLEASE USE LAPTOP OR DESKTOP FOR BEST VIEWING PERFORMANCE" : "Go slow as you can and explore with cursor"} 
+                  color={isMobile ? "#ffffff" : "#444"}
+               />
             </div>
 
             {/* === ABOUT === */}
@@ -249,7 +264,7 @@ export default function App() {
             </section>
 
             {/* === WORKS === */}
-            <HorizontalWorks selectedId={selectedId} setSelectedId={setSelectedId} />
+            <HorizontalWorks selectedId={selectedId} setSelectedId={setSelectedId} isMobile={isMobile} />
 
             {/* === EXPERIENCE === */}
             <section id="experience" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "15vh 0" }}>
@@ -624,19 +639,11 @@ function AchievementCard({ image, icon, title, event, sub }: any) {
    )
 }
 
-const HorizontalWorks = ({ selectedId, setSelectedId }: { selectedId: string | null, setSelectedId: (id: string) => void }) => {
+const HorizontalWorks = ({ selectedId, setSelectedId, isMobile }: { selectedId: string | null, setSelectedId: (id: string) => void, isMobile: boolean }) => {
    const wrapperRef = useRef<HTMLDivElement>(null);
    const trackRef = useRef<HTMLDivElement>(null);
    const hScrollRef = useRef(0);
    const [progress, setProgress] = useState(0);
-   const [isMobile, setIsMobile] = useState(false);
-
-   useEffect(() => {
-      const check = () => setIsMobile(window.innerWidth <= 768);
-      check();
-      window.addEventListener('resize', check);
-      return () => window.removeEventListener('resize', check);
-   }, []);
 
    useEffect(() => {
       if (isMobile || selectedId) return;
@@ -957,7 +964,7 @@ const Preloader = () => {
    return (
       <motion.div
          exit={{ y: "-100vh", transition: { duration: 0.9, ease: [0.76, 0, 0.24, 1] } }}
-         style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", backgroundColor: "#020202", zIndex: 100000, display: "flex", alignItems: "flex-end", padding: "5vw" }}
+         style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", backgroundColor: "#020202", zIndex: 100000, display: "flex", alignItems: "center", justifyContent: "center", padding: "5vw" }}
       >
          <div style={{ fontSize: "clamp(8rem, 20vw, 25rem)", color: "#fff", lineHeight: 0.8, fontFamily: '"Inter", sans-serif', fontWeight: 800, letterSpacing: "-0.05em" }}>
             {Math.min(counter, 100)}%
