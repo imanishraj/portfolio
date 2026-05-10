@@ -21,7 +21,7 @@ const projects = [
       category: "AI Automation",
       image: "/images/obys/new/gitpilot_cover_1776867279068.png",
       date: "2026",
-      desc: "Automated GitHub CLI tool with local LLM integration for generating commits and READMEs. Packaged for PyPI with offline AI capabilities. Revolutionizing the standard development workflow by injecting contextual intelligence into version control syntax.",
+      desc: "A Python CLI tool that uses local Ollama LLMs to auto-generate git commit messages and READMEs. Packaged on PyPI with fully offline AI capabilities.",
       tech: ["Python", "Ollama", "GitHub API", "PyPI"],
       link: "https://github.com/imanishraj/gitpilot"
    },
@@ -31,7 +31,7 @@ const projects = [
       category: "Full Stack Platform",
       image: "/images/obys/new/data_system_cover_1776867298536.png",
       date: "2026",
-      desc: "A secure, form-based data collection platform engineered with Next.js and Supabase Auth. It features a highly scalable administrative dashboard, granular role-based access controls, and robust PostgreSQL storage layers specifically optimized for ultra-low latency query execution and high-throughput data pipelines.",
+      desc: "A secure form-based data collection platform built with Next.js and Supabase Auth. Includes an admin dashboard with role-based access, search, CSV export, and PostgreSQL storage.",
       tech: ["Next.js", "Node.js", "Supabase", "PostgreSQL"],
       link: "https://github.com/imanishraj/SRN_backend"
    },
@@ -41,19 +41,19 @@ const projects = [
       category: "IoT + ML",
       image: "/images/obys/new/smart_irrigation_cover_1776867314104.png",
       date: "2025",
-      desc: "An advanced IoT-driven precision agriculture system utilizing ESP32 microcontrollers, ambient environmental sensors, and real-time weather APIs. It deeply integrates Facebook's Prophet ML model to execute sophisticated crop rotation forecasting and predictive irrigation analysis, optimizing water usage dynamically based on microclimate variations.",
+      desc: "IoT precision agriculture system using ESP32, soil/humidity sensors, and Facebook's Prophet ML model for crop rotation forecasting and automated drip irrigation control.",
       tech: ["C", "Python", "ESP32", "Prophet ML"],
       link: "https://github.com/imanishraj/precision_agriculture_and_crop_management_using_IoT"
    },
    {
-      id: "finance_tracker",
-      title: "Finance Tracker",
-      category: "Web Application",
-      image: "/images/obys/new/finance_tracker_cover_1776867345600.png",
+      id: "inventory_event_processor",
+      title: "Inventory Event Processor",
+      category: "Backend Systems",
+      image: "/images/obys/new/inventory_processor_cover.png",
       date: "2024",
-      desc: "A comprehensive investment tracking web platform integrating live real-time market data APIs. It provides rigorous performance analytics, interactive sector heatmaps, and institutional-grade data visualization capabilities, enabling users to perform sophisticated portfolio balancing and quantitative risk assessments.",
-      tech: ["Python", "Flask", "SmartAPI"],
-      link: ""
+      desc: "Event-driven inventory system using Spring Boot and PostgreSQL. Implements a producer-consumer queue to decouple API writes from DB persistence. Features an immutable event log, async batch processing, low-stock alerts, and a live React dashboard.",
+      tech: ["Java 21", "Spring Boot", "PostgreSQL", "Flyway", "React", "Recharts"],
+      link: "https://github.com/imanishraj/inventory_event_processor"
    },
    {
       id: "street_light",
@@ -61,7 +61,7 @@ const projects = [
       category: "IoT System",
       image: "/images/obys/new/adaptive_lighting_cover_1776867372064.png",
       date: "2023",
-      desc: "An intelligent, adaptive street lighting grid powered by ambient edge-computing sensors. It automatically adjusts luminosity output in real-time to optimize urban energy efficiency and reduce light pollution, all while meticulously maintaining strict safety luminosity standards for pedestrian and vehicular traffic.",
+      desc: "Smart street lighting system using ESP8266 sensors that auto-adjusts brightness based on ambient light and motion to reduce energy usage.",
       tech: ["C", "Python", "ESP8266"],
       link: "https://github.com/imanishraj/Smart-Street-Light-System"
    },
@@ -71,7 +71,7 @@ const projects = [
       category: "Frontend Dev",
       image: "/images/obys/new/sonic_shell_cover_1776867391097.png",
       date: "2026",
-      desc: "A highly interactive, component-based frontend music player interface utilizing advanced React paradigms. It features fluid spatial routing, visually stunning responsive frequency visualizers, and an immersive glassmorphism styling that elevates the auditory experience through seamless, premium UI interactions.",
+      desc: "Component-based music player UI built in React with frequency visualizers, spatial routing, and glassmorphism styling.",
       tech: ["React", "Vite", "HTML", "CSS"],
       link: "https://github.com/imanishraj/music-player"
    }
@@ -122,8 +122,10 @@ export default function App() {
    const [loading, setLoading] = useState(true);
    const { openChat } = useChat();
    const [isMobile, setIsMobile] = useState(false);
+   const [jsLoaded, setJsLoaded] = useState(false);
 
    useEffect(() => {
+      setJsLoaded(true);
       const check = () => setIsMobile(window.innerWidth <= 768);
       check();
       window.addEventListener('resize', check);
@@ -177,7 +179,7 @@ export default function App() {
    };
 
    return (
-      <div style={{ backgroundColor: "#050505", minHeight: "100vh", color: "#ffffff" }}>
+      <div className={jsLoaded ? "" : "js-fallback"} style={{ backgroundColor: "#050505", minHeight: "100vh", color: "#ffffff" }}>
          <CustomCursor />
 
          <AnimatePresence mode="wait">
@@ -201,6 +203,8 @@ export default function App() {
                   </h1>
                </ScrollReveal>
                
+               
+
                <AnimatePresence>
                   {showNudge && (
                      <motion.div
@@ -272,9 +276,9 @@ export default function App() {
                   <h2 style={{ fontFamily: '"Inter", sans-serif', fontWeight: 800, letterSpacing: "-0.05em", fontSize: "clamp(2.5rem, 8vw, 10rem)", color: "#ffffff", marginBottom: "8rem", lineHeight: 0.9 }}><DataScramble text="EXPERIENCE" /></h2>
                   <div style={{ display: "flex", flexDirection: "column", gap: "6rem" }}>
                      {[
-                        { role: "Full Stack Developer", corp: "ALSTONAIR TECHNOLOGIES", date: "Apr 2026 \u2013 Present", summary: "Engineered high-throughput microservices and resilient data pipelines. Led the transition to containerized infrastructure, resulting in a 40% reduction in deployment times and ensuring zero-downtime scalability across core platform APIs." },
-                        { role: "Field Assistant (IoT)", corp: "GITAM UNIVERSITY", date: "Sep 2025 \u2013 Present", summary: "Designed and prototyped ambient environmental sensor arrays. Implemented edge-computing protocols for real-time data telemetry, significantly improving the spatial resolution of the university's precision agriculture testbeds." },
-                        { role: "Software Dev Intern", corp: "HIMALAYA WELLNESS", date: "Jan \u2013 Feb 2025", summary: "Developed analytical dashboard components and optimized backend queries. Streamlined data reporting workflows by aggregating disparate logistics metrics into unified, interactive data visualizations for stakeholders." }
+                        { role: "Full Stack Developer", corp: "ALSTONAIR TECHNOLOGIES", date: "Apr 2026 \u2013 Present", summary: "Building and maintaining FastAPI microservices and PostgreSQL data pipelines for the NAL platform. Contributing to frontend features in React + TypeScript (Vite)." },
+                        { role: "Field Assistant (IoT)", corp: "GITAM UNIVERSITY", date: "Sep 2025 \u2013 Present", summary: "Prototyped ESP32-based environmental sensor arrays for precision agriculture research. Built a Blynk IoT dashboard and conducted farmer awareness workshops in Kannada and English." },
+                        { role: "Software Dev Intern", corp: "HIMALAYA WELLNESS", date: "Jan \u2013 Feb 2025", summary: "Developed an admin dashboard and optimized SQL queries for internal reporting. Built a geolocation-based QR attendance system using .NET and SQL Server." }
                      ].map((exp, i) => (
                         <ScrollReveal key={i} blur yOffset={50} delay={0.15 + (i * 0.2)}>
                            <ExperienceRow role={exp.role} corp={exp.corp} date={exp.date} summary={exp.summary} />
@@ -338,7 +342,15 @@ export default function App() {
                         <a href="/resume.pdf" download className="hover-target obys-btn" style={{ display: "inline-block" }}>DOWNLOAD RESUME</a>
                      </ScrollReveal>
                      <ScrollReveal delay={0.5} yOffset={30}>
-                        <button onClick={openChat} className="hover-target obys-btn" style={{ display: "inline-block", background: "transparent" }}>INITIATE CHAT</button>
+                        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem" }}>
+                           <button onClick={openChat} className="hover-target obys-btn" style={{ display: "inline-block", background: "transparent" }}>Chat with my AI assistant</button>
+                           <span style={{ fontSize: "0.75rem", color: "#888", fontFamily: '"Inter", sans-serif', letterSpacing: "0.05em" }}>Ask me anything about my work or skills.</span>
+                        </div>
+                     </ScrollReveal>
+                     <ScrollReveal delay={0.7}>
+                        <div style={{ paddingLeft: "0vw", marginTop: "1.5rem", fontFamily: '"Inter", sans-serif', fontSize: "clamp(0.85rem, 1.5vw, 1rem)", color: "#888", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                           Currently open to full-time Full Stack roles in Bengaluru (remote-friendly).
+                        </div>
                      </ScrollReveal>
                   </div>
                </div>
@@ -426,6 +438,13 @@ export default function App() {
         .scroller-item:hover .scroller-dot { background: #fff; transform: scale(2); }
         .scroller-item.active { color: #fff; }
         .scroller-item.active .scroller-dot { background: #fff; transform: scale(2); }
+        .scroller-item.active .scroller-label { opacity: 1; transform: translateX(0); font-weight: 600; color: #ffffff; }
+        
+        /* Fallback animations for JS failure */
+        .js-fallback .preloader-overlay { animation: fallbackHide 4s forwards; }
+        .js-fallback main { animation: fallbackReveal 4s forwards !important; }
+        @keyframes fallbackHide { 0%, 80% { opacity: 1; visibility: visible; } 100% { opacity: 0; visibility: hidden; } }
+        @keyframes fallbackReveal { 0%, 80% { opacity: 0; } 100% { opacity: 1; } }
         
         .submit-btn {
            background: #ffffff !important; color: #000000 !important; font-weight: 600; border-color: #ffffff !important;
@@ -721,6 +740,7 @@ const HorizontalWorks = ({ selectedId, setSelectedId, isMobile }: { selectedId: 
                         )}
                      </div>
                   </ScrollReveal>
+                  
                ))}
             </div>
          </section>
@@ -963,6 +983,7 @@ const Preloader = () => {
 
    return (
       <motion.div
+         className="preloader-overlay"
          exit={{ y: "-100vh", transition: { duration: 0.9, ease: [0.76, 0, 0.24, 1] } }}
          style={{ position: "fixed", top: 0, left: 0, width: "100vw", height: "100vh", backgroundColor: "#020202", zIndex: 100000, display: "flex", alignItems: "center", justifyContent: "center", padding: "5vw" }}
       >
