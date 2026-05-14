@@ -16,6 +16,16 @@ const sections = [
 
 const projects = [
    {
+      id: "real_time_ordering",
+      title: "Real-Time Order Tracking",
+      category: "Event-Driven Microservices",
+      image: "/images/obys/new/real_time_order_tracking.png",
+      date: "2026",
+      desc: "A real-time order tracking system built with Kafka-driven microservices, featuring retries, dead letter queues, PostgreSQL, Redis, and live WebSocket updates using FastAPI, React, and Docker Compose.",
+      tech: ["Kafka", "FastAPI", "PostgreSQL", "Redis", "React", "WebSockets"],
+      link: "https://github.com/imanishraj/Real-Time-Ordering"
+   },
+   {
       id: "gitpilot",
       title: "GitPilot CLI",
       category: "AI Automation",
@@ -26,16 +36,6 @@ const projects = [
       link: "https://github.com/imanishraj/gitpilot"
    },
    {
-      id: "data_collection",
-      title: "Data System",
-      category: "Full Stack Platform",
-      image: "/images/obys/new/data_system_cover_1776867298536.png",
-      date: "2026",
-      desc: "A secure form-based data collection platform built with Next.js and Supabase Auth. Includes an admin dashboard with role-based access, search, CSV export, and PostgreSQL storage.",
-      tech: ["Next.js", "Node.js", "Supabase", "PostgreSQL"],
-      link: "https://github.com/imanishraj/SRN_backend"
-   },
-   {
       id: "smart_irrigation",
       title: "Smart Irrigation",
       category: "IoT + ML",
@@ -44,6 +44,16 @@ const projects = [
       desc: "IoT precision agriculture system using ESP32, soil/humidity sensors, and Facebook's Prophet ML model for crop rotation forecasting and automated drip irrigation control.",
       tech: ["C", "Python", "ESP32", "Prophet ML"],
       link: "https://github.com/imanishraj/precision_agriculture_and_crop_management_using_IoT"
+   },
+   {
+      id: "data_collection",
+      title: "Data System",
+      category: "Full Stack Platform",
+      image: "/images/obys/new/data_system_cover_1776867298536.png",
+      date: "2026",
+      desc: "A secure form-based data collection platform built with Next.js and Supabase Auth. Includes an admin dashboard with role-based access, search, CSV export, and PostgreSQL storage.",
+      tech: ["Next.js", "Node.js", "Supabase", "PostgreSQL"],
+      link: "https://github.com/imanishraj/SRN_backend"
    },
    {
       id: "inventory_event_processor",
@@ -770,6 +780,13 @@ const HorizontalWorks = ({ selectedId, setSelectedId, isMobile }: { selectedId: 
                ref={trackRef}
                style={{ display: "flex", height: "100vh", zIndex: 1, willChange: "transform", transition: "transform 0.1s ease-out" }}
             >
+               {/* Intro slide for WORKS */}
+               <div style={{ width: "100vw", height: "100vh", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <h2 style={{ fontFamily: '"Inter", sans-serif', fontWeight: 800, letterSpacing: "-0.05em", fontSize: "clamp(4rem, 15vw, 15rem)", color: "#ffffff", margin: 0, lineHeight: 0.9 }}>
+                     <DataScramble text="WORKS" />
+                  </h2>
+               </div>
+
                {projects.map((proj, idx) => (
                   <ProjectItem key={proj.id} project={proj} index={idx} onClick={() => setSelectedId(proj.id)} />
                ))}
