@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { ChatProvider } from '@/components/chat/ChatContext'
 import GlobalChat from '@/components/chat/GlobalChat'
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: 'Manish Raj \u2014 Full Stack Developer & IoT Engineer',
@@ -35,6 +36,7 @@ export default function RootLayout({
           {children}
           <GlobalChat />
         </ChatProvider>
+        <Analytics />
       </body>
     </html>
   )
