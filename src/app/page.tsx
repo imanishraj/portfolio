@@ -85,6 +85,36 @@ const projects = [
       desc: "Component-based music player UI built in React with frequency visualizers, spatial routing, and glassmorphism styling.",
       tech: ["React", "Vite", "HTML", "CSS"],
       link: "https://github.com/imanishraj/music-player"
+   },
+   {
+      id: "cloud_monitoring",
+      title: "Ground-Station Cloud Monitoring Pipeline",
+      category: "Data Pipeline",
+      image: "/images/obys/new/cloud_monitoring_cover_1782487081156.png",
+      date: "2026",
+      desc: "Real-time cloud-cover monitoring system for Indian ground stations. Ingests satellite imagery (Sentinel-2, INSAT-3D), all-sky camera feeds, and weather data through a Kafka-based event pipeline, runs cloud segmentation inference via a U-Net model, and surfaces station availability scores on a live dashboard.",
+      tech: ["Kafka", "Python", "U-Net", "Sentinel-2", "React"],
+      link: "https://github.com/imanishraj/ground-station-cloud-monitoring-system"
+   },
+   {
+      id: "vendor_procurement",
+      title: "Vendor Procurement System",
+      category: "Enterprise System",
+      image: "/images/obys/new/qosmic_procurement_cover_1782487091665.png",
+      date: "2026",
+      desc: "End-to-End Vendor Procurement System with role-based portals for engineers and managers. Features include vendor scorecards, purchase requests, an automated RFQ mailing engine via SMTP, PO tracking, kanban-style order logistics, and rigorous quality inspection workflows.",
+      tech: ["React", "Node.js", "PostgreSQL", "SMTP"],
+      link: "https://github.com/imanishraj/vendor-procurement-system"
+   },
+   {
+      id: "local_rag",
+      title: "Local AI RAG Pipeline",
+      category: "AI & RAG",
+      image: "/images/obys/new/qosmic_rag_cover_1782487102677.png",
+      date: "2026",
+      desc: "100% local AI assistant providing Retrieval-Augmented Generation (RAG) over an Obsidian knowledge graph (vault). Built with Python, LangChain, and ChromaDB, utilizing local Ollama models (granite3.3:8b, nomic-embed-text) to securely answer optical ground station engineering questions.",
+      tech: ["Python", "LangChain", "ChromaDB", "Ollama", "Streamlit"],
+      link: "https://github.com/imanishraj/RAG-ollama/tree/main"
    }
 ];
 const TypingLoop = ({ text, color = '#444' }: { text: string; color?: string }) => {
@@ -287,11 +317,32 @@ export default function App() {
                   <h2 style={{ fontFamily: '"Inter", sans-serif', fontWeight: 800, letterSpacing: "-0.05em", fontSize: "clamp(2.5rem, 8vw, 10rem)", color: "#ffffff", marginBottom: "8rem", lineHeight: 0.9 }}><DataScramble text="EXPERIENCE" /></h2>
                   <div style={{ display: "flex", flexDirection: "column", gap: "6rem" }}>
                      {[
-                        { role: "Full Stack Developer", corp: "ALSTONAIR TECHNOLOGIES", date: "Apr 2026 \u2013 Present", summary: "Building and maintaining FastAPI microservices and PostgreSQL data pipelines for the NAL platform. Contributing to frontend features in React + TypeScript (Vite)." },
-                        { role: "Field Assistant (IoT)", corp: "GITAM UNIVERSITY", date: "Sep 2025 \u2013 Present", summary: "Prototyped ESP32-based environmental sensor arrays for precision agriculture research. Built a Blynk IoT dashboard and conducted farmer awareness workshops in Kannada and English." },
-                        { role: "Software Dev Intern", corp: "HIMALAYA WELLNESS", date: "Jan \u2013 Feb 2025", summary: "Developed an admin dashboard and optimized SQL queries for internal reporting. Built a geolocation-based QR attendance system using .NET and SQL Server." }
+                        {
+                           role: "Founder's Office Intern",
+                           corp: "QOSMIC",
+                           date: "Jun 2026 – Present",
+                           summary: "Operating at the intersection of strategy and execution inside the founder's office. Coordinating directly between the CEO and internal teams, managing vendor relationships, facilitating high-stakes deals, and driving marketing initiatives — building the operational backbone from the ground up."
+                        },
+                        {
+                           role: "Full Stack Developer",
+                           corp: "ALSTONAIR TECHNOLOGIES",
+                           date: "Apr 2026 – Jun 2026",
+                           summary: "Engineered full-stack features across React, Django, and FastAPI. Built and maintained MySQL and PostgreSQL data layers, shipped production-ready APIs, and contributed to core platform infrastructure during the company's early growth phase."
+                        },
+                        {
+                           role: "Field Assistant (IoT)",
+                           corp: "GITAM UNIVERSITY",
+                           date: "Sep 2025 – Present",
+                           summary: "Designed and prototyped ambient environmental sensor arrays for a DST government-funded precision agriculture project. Implemented edge-computing protocols for real-time telemetry and conducted bilingual farmer awareness workshops under Prof. K G Mohan."
+                        },
+                        {
+                           role: "Software Dev Intern",
+                           corp: "HIMALAYA WELLNESS",
+                           date: "Jan – Feb 2025",
+                           summary: "Developed a geolocation-based QR code redirection and targeted marketing system. Built with .NET and SQL Server — location-aware QR codes serving dynamic content based on user coordinates."
+                        }
                      ].map((exp, i) => (
-                        <ScrollReveal key={i} blur yOffset={50} delay={0.15 + (i * 0.2)}>
+                        <ScrollReveal key={i} blur yOffset={50} delay={0.15 + (i * 0.15)}>
                            <ExperienceRow role={exp.role} corp={exp.corp} date={exp.date} summary={exp.summary} />
                         </ScrollReveal>
                      ))}
